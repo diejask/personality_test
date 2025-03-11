@@ -6,7 +6,7 @@
 
 ### Initialization ###
 
-anzahl_fragen = 10
+number_of_questions = 10
 
 #### Questions ####
 
@@ -80,8 +80,7 @@ def question8():
  print(" Ich bin 30 Minuten vorher da. Dann hab ich genug Puffer. (B)\n",
       "10 Minuten reichen, um mir einen Überblick zu verschaffen. (D)\n",
       "Ich bin immer pünktlich. (A)\n",
-      "Es kommt vor, dass ich mich verspäte. (C)\n\n"
-      )
+      "Es kommt vor, dass ich mich verspäte. (C)\n\n")
 
 ## Question 9 ##
 
@@ -92,7 +91,7 @@ def question9():
       "Ich denke, ich muss noch viel lernen. (B)\n",
       "Ich komme gut an, kann also nicht verkehrt sein. (C)\n\n")
 
-## Question 1 0 ##
+## Question 10 ##
 def question10():
  print("10. Im Job wird hitzig gestritten. Was tun Sie?\n")
  print(" Ich trenne die Streithähne – bringt doch nichts! (A)\n",
