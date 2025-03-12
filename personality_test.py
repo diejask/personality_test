@@ -101,3 +101,32 @@ def question10():
  
 question = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10]
 
+
+
+### Calculation ###
+
+while i < len(question):
+     question[i]()
+     i += 1
+     answer = input("Wählen Sie bitte A, B, C oder D: ")
+     print("\n\n")
+     
+#The answer is converted to lowercase and compared with the letters a, b, c, d, 
+#and a point is added to the corresponding personality based on the answer.
+     if "a" == answer.lower() :
+          macher_score += 1
+     elif "b" == answer.lower() :
+          zurueckhaltender_score += 1
+     elif "c" == answer.lower() :
+          traeumer_score += 1
+     elif "d" == answer.lower() :
+          realist_score += 1
+     else: 
+       print("Sie haben ein ungültiges Zeichen eingegeben. Bitte geben sie A, B, C oder D ein. \n")      
+       i -= 1                 # if user inputs invalid sign the question gets repeated
+
+#Conversion of scores into percentage values
+macher_percentage = (macher_score / number_of_questions) * 100
+zurueckhaltender_percentage = (zurueckhaltender_score / number_of_questions) * 100
+traeumer_percentage = (traeumer_score / number_of_questions) * 100
+realist_percentage = (realist_score / number_of_questions) * 100
