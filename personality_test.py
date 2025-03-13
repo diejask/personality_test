@@ -8,18 +8,20 @@
 
 number_of_questions = 10
 
+i = 0               # counter for the while loop
 answer = 0
 macher_score = 0
 zurueckhaltender_score = 0
 traeumer_score = 0
 realist_score = 0
 
-number_of_questions = 10
-
 macher_percentage = 0
 zurueckhaltender_percentage = 0
 traeumer_percentage = 0
 realist_percentage = 0
+
+questions = []
+texts = []
 
 
 #### Questions ####
@@ -113,14 +115,14 @@ def question10():
       "Ich erkläre den Streitern, dass sie am Thema vorbei diskutieren. (D)\n",
       "Ich suche Gemeinsamkeiten und vermittle. (B)\n\n")
  
-question = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10]
+questions = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10]
 
 
 
 ### Calculation ###
 
-while i < len(question):
-     question[i]()
+while i < len(questions):
+     questions[i]()
      i += 1
      answer = input("Wählen Sie bitte A, B, C oder D: ")
      print("\n\n")
@@ -144,3 +146,11 @@ macher_percentage = (macher_score / number_of_questions) * 100
 zurueckhaltender_percentage = (zurueckhaltender_score / number_of_questions) * 100
 traeumer_percentage = (traeumer_score / number_of_questions) * 100
 realist_percentage = (realist_score / number_of_questions) * 100
+
+
+### Description of the personality types ###
+macher_text = "Der Macher:\n Sie sind ein offener und aktiver Mensch – und das spiegeln Sie nach außen:\n Auf andere wirken Sie selbstbewusst, da Sie sich mühelos auch unter fremden Menschen bewegen. \nIhre dynamische Art reißt andere mit, daher können Sie gut motivieren.\n Sie gehen lösungsorientiert vor und haben klare Ziele. Weil Sie ein Macher sind,\n sind Sie nicht nur gut organisiert, sondern behalten auch schnell den Überblick in stressigen Situationen."
+zurueckhaltender_text = "Der Zurückhaltende:\n Sie sind ein zurückhaltender Mensch und meiden Situationen, die Ihnen fremd sind.\n Auf Rückschläge reagieren Sie sensibel und brauchen Zeit, damit umzugehen.\n Teilweise verlieren Sie sich in Tagträumen. Mit Ihrer stillen, freundlichen Art sind Sie bei anderen beliebt.\n Allerdings bringt Sie Ihre gewissenhafte Arbeitsweise teilweise an Grenzen."
+traumer_text = "Der Träumer:\n Sie sind ein phantasievoller Mensch. Unbekannte Situationen meistern Sie, indem Sie es sich angenehm gestalten.\n Sie sind ein Meister im Improvisieren und Tricksen! Mit Ihrer humorvollen Art kommen Sie bei den meisten Menschen gut an,\n auch wenn Sie manchmal chaotisch wirken. Tagträume sind für Sie ein gutes Mittel,\n um auf neue Ideen zu kommen. Daher haben Sie auch ein gutes Verhältnis zu sich selbst und Ihrem Können."
+realist_text = "Der Realist:\n Sie sind ein realistischer Mensch und haben einen guten Überblick über Ihre Fähigkeiten und wissen,\n was Sie noch ausbauen wollen. Sie wissen, dass das Leben kein Ponyhof ist und machen das Beste daraus.\n Kneifen zählt für Sie nicht! Diese pragmatische Art hilft Ihnen, einen kühlen Kopf in Konfliktsituationen zu behalten.\n Sachlich gehen Sie mit Rückschlägen um, denn Sie wissen:\n Bei genauerer Betrachtung können Sie fürs nächste Mal etwas daraus lernen!"
+texts = [macher_text, zurueckhaltender_text, traumer_text, realist_text]
