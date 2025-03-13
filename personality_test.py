@@ -8,6 +8,20 @@
 
 number_of_questions = 10
 
+answer = 0
+macher_score = 0
+zurueckhaltender_score = 0
+traeumer_score = 0
+realist_score = 0
+
+number_of_questions = 10
+
+macher_percentage = 0
+zurueckhaltender_percentage = 0
+traeumer_percentage = 0
+realist_percentage = 0
+
+
 #### Questions ####
 
 ## Question 1 ##
@@ -122,7 +136,7 @@ while i < len(question):
      elif "d" == answer.lower() :
           realist_score += 1
      else: 
-       print("Sie haben ein ungültiges Zeichen eingegeben. Bitte geben sie A, B, C oder D ein. \n")      
+       print("\nSie haben ein ungültiges Zeichen eingegeben. Bitte geben sie A, B, C oder D ein. \n")      
        i -= 1                 # if user inputs invalid sign the question gets repeated
 
 #Conversion of scores into percentage values
