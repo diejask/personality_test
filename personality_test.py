@@ -3,24 +3,37 @@
 # date: 10.03.2025
 # source: https://karrierebibel.de/persoenlichkeitstest/
 
+import matplotlib.pyplot as plot
+# The matplotlib is a data visualization library. In this program it is used, 
+# to showcase the percentage for the different personality types in a pie chart.
+# Furthermore it illustrates the description of the personality types.
 
 ### Initialization ###
 
 number_of_questions = 10
 
+i = 0               # counter for the while loop
 answer = 0
 macher_score = 0
 zurueckhaltender_score = 0
 traeumer_score = 0
 realist_score = 0
 
-number_of_questions = 10
-
 macher_percentage = 0
 zurueckhaltender_percentage = 0
 traeumer_percentage = 0
 realist_percentage = 0
 
+questions = []
+texts = []
+labels = []
+sizes = []
+colors = []
+max_percentage = []
+explode = []
+sizes_without_zero = []       
+labels_without_zero =[]      
+y_position = []
 
 #### Questions ####
 
@@ -113,14 +126,14 @@ def question10():
       "Ich erkläre den Streitern, dass sie am Thema vorbei diskutieren. (D)\n",
       "Ich suche Gemeinsamkeiten und vermittle. (B)\n\n")
  
-question = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10]
+questions = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10]
 
 
 
 ### Calculation ###
 
-while i < len(question):
-     question[i]()
+while i < len(questions):
+     questions[i]()
      i += 1
      answer = input("Wählen Sie bitte A, B, C oder D: ")
      print("\n\n")
@@ -144,3 +157,41 @@ macher_percentage = (macher_score / number_of_questions) * 100
 zurueckhaltender_percentage = (zurueckhaltender_score / number_of_questions) * 100
 traeumer_percentage = (traeumer_score / number_of_questions) * 100
 realist_percentage = (realist_score / number_of_questions) * 100
+
+
+### Description of the personality types ###
+macher_text = "Der Macher:\n Sie sind ein offener und aktiver Mensch – und das spiegeln Sie nach außen:\n Auf andere wirken Sie selbstbewusst, da Sie sich mühelos auch unter fremden Menschen bewegen. \nIhre dynamische Art reißt andere mit, daher können Sie gut motivieren.\n Sie gehen lösungsorientiert vor und haben klare Ziele. Weil Sie ein Macher sind,\n sind Sie nicht nur gut organisiert, sondern behalten auch schnell den Überblick in stressigen Situationen."
+zurueckhaltender_text = "Der Zurückhaltende:\n Sie sind ein zurückhaltender Mensch und meiden Situationen, die Ihnen fremd sind.\n Auf Rückschläge reagieren Sie sensibel und brauchen Zeit, damit umzugehen.\n Teilweise verlieren Sie sich in Tagträumen. Mit Ihrer stillen, freundlichen Art sind Sie bei anderen beliebt.\n Allerdings bringt Sie Ihre gewissenhafte Arbeitsweise teilweise an Grenzen."
+traumer_text = "Der Träumer:\n Sie sind ein phantasievoller Mensch. Unbekannte Situationen meistern Sie, indem Sie es sich angenehm gestalten.\n Sie sind ein Meister im Improvisieren und Tricksen! Mit Ihrer humorvollen Art kommen Sie bei den meisten Menschen gut an,\n auch wenn Sie manchmal chaotisch wirken. Tagträume sind für Sie ein gutes Mittel,\n um auf neue Ideen zu kommen. Daher haben Sie auch ein gutes Verhältnis zu sich selbst und Ihrem Können."
+realist_text = "Der Realist:\n Sie sind ein realistischer Mensch und haben einen guten Überblick über Ihre Fähigkeiten und wissen,\n was Sie noch ausbauen wollen. Sie wissen, dass das Leben kein Ponyhof ist und machen das Beste daraus.\n Kneifen zählt für Sie nicht! Diese pragmatische Art hilft Ihnen, einen kühlen Kopf in Konfliktsituationen zu behalten.\n Sachlich gehen Sie mit Rückschlägen um, denn Sie wissen:\n Bei genauerer Betrachtung können Sie fürs nächste Mal etwas daraus lernen!"
+
+texts = [macher_text, zurueckhaltender_text, traumer_text, realist_text]
+
+
+### Output and Visualization ###
+
+## Figure 1 ##
+plot.figure(1)                      # creates a figure
+
+for i in range(0,4):               # arranges depiction of the texts 
+  y_position = 0.80 - i*0.25                 # y-position depending on the personality type 
+  plot.figtext(0.5, y_position, texts[i], ha="center", fontsize= 12)
+
+
+## Figure 2 ##
+plot.figure(2)           # creates a second figure 
+
+labels = ["Der Macher", "Der Zurückhaltende", "Der Träumer", "Der Realist"]     # labels of the pie sections
+sizes = [macher_percentage,zurueckhaltender_percentage, traeumer_percentage, realist_percentage]      # assigns percentage to its specific section
+colors = ["red", "yellow", "blue", "green"]
+
+sizes_without_zero = [size for size in sizes if size > 0]                             # sections with zero percent gets filtered out 
+labels_without_zero = [label for label, size in zip(labels, sizes) if size > 0]       # otherwise the labels will overlap
+
+max_percentage = max(sizes_without_zero)                         # picks the highest percentage in the list sizes_without_zero
+explode = [0.1 if size == max_percentage else 0 for size in sizes_without_zero ]       # highlights section with the highest score
+
+plot.pie(sizes_without_zero, labels=labels_without_zero, colors=colors, explode=explode, autopct='%1.0f%%', shadow=True, startangle=140)
+plot.title("Was für einen Persönlichkeitstyp haben Sie?")        # title of the plot
+
+plot.show()
