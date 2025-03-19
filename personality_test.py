@@ -101,7 +101,6 @@ def question7():
       "Unterschiedlich. Manche Situation war schon sehr riskant. (C)\n\n")
 
 ## Question 8 ##
-
 def question8():
  print("8. Wie halten Sie es mit der Pünktlichkeit?\n")
  print(" Ich bin 30 Minuten vorher da. Dann hab ich genug Puffer. (B)\n",
@@ -110,7 +109,6 @@ def question8():
       "Es kommt vor, dass ich mich verspäte. (C)\n\n")
 
 ## Question 9 ##
-
 def question9():
  print("9. Wie überzeugt sind Sie von sich?\n")
  print(" Ich kenne meine Stärken und Schwächen. (D)\n",
@@ -152,7 +150,7 @@ while i < len(questions):
        print("\nSie haben ein ungültiges Zeichen eingegeben. Bitte geben sie A, B, C oder D ein. \n")      
        i -= 1                 # if user inputs invalid sign the question gets repeated
 
-#Conversion of scores into percentage values
+# Conversion of scores into percentage values
 macher_percentage = (macher_score / number_of_questions) * 100
 zurueckhaltender_percentage = (zurueckhaltender_score / number_of_questions) * 100
 traeumer_percentage = (traeumer_score / number_of_questions) * 100
